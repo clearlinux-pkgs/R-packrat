@@ -4,18 +4,24 @@
 #
 Name     : R-packrat
 Version  : 0.5.0
-Release  : 16
+Release  : 17
 URL      : https://cran.r-project.org/src/contrib/packrat_0.5.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/packrat_0.5.0.tar.gz
 Summary  : A Dependency Management System for Projects and their R Package
 Group    : Development/Tools
 License  : GPL-2.0
-Requires: R-rlang
+Requires: R-assertthat
+Requires: R-cli
+Requires: R-withr
+BuildRequires : R-assertthat
+BuildRequires : R-cli
 BuildRequires : R-rlang
+BuildRequires : R-withr
 BuildRequires : buildreq-R
 
 %description
-on in an isolated, portable, and reproducible way.
+[![Build Status](https://travis-ci.org/rstudio/packrat.svg?branch=master)](https://travis-ci.org/rstudio/packrat)
+[![Coverage Status](https://codecov.io/github/rstudio/packrat/coverage.svg?branch=master)](https://codecov.io/github/rstudio/packrat?branch=master)
 
 %prep
 %setup -q -c -n packrat
@@ -25,10 +31,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1542211668
+export SOURCE_DATE_EPOCH=1552837359
 
 %install
-export SOURCE_DATE_EPOCH=1542211668
+export SOURCE_DATE_EPOCH=1552837359
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -64,8 +70,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library packrat|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  packrat || :
 
 
 %files
@@ -93,3 +98,67 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/packrat/resources/init.R
 /usr/lib64/R/library/packrat/resources/mac_r_userlib.sh
 /usr/lib64/R/library/packrat/rstudio/rstudio-protocol
+/usr/lib64/R/library/packrat/tests/test-all.R
+/usr/lib64/R/library/packrat/tests/test-cranlike-repositories.R
+"/usr/lib64/R/library/packrat/tests/testthat/Ugly, but legal, path for a project (long)/bread/DESCRIPTION"
+"/usr/lib64/R/library/packrat/tests/testthat/Ugly, but legal, path for a project (long)/breakfast/DESCRIPTION"
+"/usr/lib64/R/library/packrat/tests/testthat/Ugly, but legal, path for a project (long)/oatmeal/DESCRIPTION"
+"/usr/lib64/R/library/packrat/tests/testthat/Ugly, but legal, path for a project (long)/packrat/DESCRIPTION"
+"/usr/lib64/R/library/packrat/tests/testthat/Ugly, but legal, path for a project (long)/toast/DESCRIPTION"
+/usr/lib64/R/library/packrat/tests/testthat/lockfiles/lockfile-multipleRepos.txt
+/usr/lib64/R/library/packrat/tests/testthat/other-packages/packrat/DESCRIPTION
+/usr/lib64/R/library/packrat/tests/testthat/packages/bread/DESCRIPTION
+/usr/lib64/R/library/packrat/tests/testthat/packages/breakfast/DESCRIPTION
+/usr/lib64/R/library/packrat/tests/testthat/packages/egg/DESCRIPTION
+/usr/lib64/R/library/packrat/tests/testthat/packages/oatmeal/DESCRIPTION
+/usr/lib64/R/library/packrat/tests/testthat/packages/packrat/DESCRIPTION
+/usr/lib64/R/library/packrat/tests/testthat/packages/toast/DESCRIPTION
+/usr/lib64/R/library/packrat/tests/testthat/projects/carbs/flour.R
+/usr/lib64/R/library/packrat/tests/testthat/projects/empty/empty.R
+/usr/lib64/R/library/packrat/tests/testthat/projects/emptydesc/DESCRIPTION
+/usr/lib64/R/library/packrat/tests/testthat/projects/emptydesc/app.R
+/usr/lib64/R/library/packrat/tests/testthat/projects/healthy/healthy.R
+/usr/lib64/R/library/packrat/tests/testthat/projects/libraries/library.R
+/usr/lib64/R/library/packrat/tests/testthat/projects/libraries/packrat/lib/lib-current.R
+/usr/lib64/R/library/packrat/tests/testthat/projects/libraries/packrat/library.new/lib-new.R
+/usr/lib64/R/library/packrat/tests/testthat/projects/partlyignored/ignoreme/ignorethis.R
+/usr/lib64/R/library/packrat/tests/testthat/projects/partlyignored/notignored.R
+/usr/lib64/R/library/packrat/tests/testthat/projects/sated/sated.R
+/usr/lib64/R/library/packrat/tests/testthat/projects/smallbreakfast/bread.R
+/usr/lib64/R/library/packrat/tests/testthat/projects/smallbreakfast/oatmeal.R
+/usr/lib64/R/library/packrat/tests/testthat/repo-empty/src/contrib/PACKAGES
+/usr/lib64/R/library/packrat/tests/testthat/repo/src/contrib/PACKAGES
+/usr/lib64/R/library/packrat/tests/testthat/repo/src/contrib/PACKAGES.gz
+/usr/lib64/R/library/packrat/tests/testthat/repo/src/contrib/PACKAGES.rds
+/usr/lib64/R/library/packrat/tests/testthat/repo/src/contrib/bread/bread_1.0.0.tar.gz
+/usr/lib64/R/library/packrat/tests/testthat/repo/src/contrib/breakfast/breakfast_1.0.0.tar.gz
+/usr/lib64/R/library/packrat/tests/testthat/repo/src/contrib/egg/egg_1.0.0.tar.gz
+/usr/lib64/R/library/packrat/tests/testthat/repo/src/contrib/oatmeal/oatmeal_1.0.0.tar.gz
+/usr/lib64/R/library/packrat/tests/testthat/repo/src/contrib/packrat/packrat_0.4.9-15.tar.gz
+/usr/lib64/R/library/packrat/tests/testthat/repo/src/contrib/toast/toast_1.0.0.tar.gz
+/usr/lib64/R/library/packrat/tests/testthat/resources/alternate-engines.Rmd
+/usr/lib64/R/library/packrat/tests/testthat/resources/emoji.Rmd
+/usr/lib64/R/library/packrat/tests/testthat/resources/evaluate-deps.Rmd
+/usr/lib64/R/library/packrat/tests/testthat/resources/interactive-doc-example.Rmd
+/usr/lib64/R/library/packrat/tests/testthat/resources/knitr-minimal.Rnw
+/usr/lib64/R/library/packrat/tests/testthat/resources/no-chunks.Rmd
+/usr/lib64/R/library/packrat/tests/testthat/resources/params-example.Rmd
+/usr/lib64/R/library/packrat/tests/testthat/resources/test-sweave.Rnw
+/usr/lib64/R/library/packrat/tests/testthat/test-aaa.R
+/usr/lib64/R/library/packrat/tests/testthat/test-bitbucket.R
+/usr/lib64/R/library/packrat/tests/testthat/test-bundle.R
+/usr/lib64/R/library/packrat/tests/testthat/test-cache.R
+/usr/lib64/R/library/packrat/tests/testthat/test-dependencies.R
+/usr/lib64/R/library/packrat/tests/testthat/test-downloader.R
+/usr/lib64/R/library/packrat/tests/testthat/test-git.R
+/usr/lib64/R/library/packrat/tests/testthat/test-github.R
+/usr/lib64/R/library/packrat/tests/testthat/test-hash.R
+/usr/lib64/R/library/packrat/tests/testthat/test-ignores.R
+/usr/lib64/R/library/packrat/tests/testthat/test-local-repositories.R
+/usr/lib64/R/library/packrat/tests/testthat/test-lockfile.R
+/usr/lib64/R/library/packrat/tests/testthat/test-packrat-mode.R
+/usr/lib64/R/library/packrat/tests/testthat/test-packrat.R
+/usr/lib64/R/library/packrat/tests/testthat/test-rmarkdown.R
+/usr/lib64/R/library/packrat/tests/testthat/test-shiny.R
+/usr/lib64/R/library/packrat/tests/testthat/test-utils.R
+/usr/lib64/R/library/packrat/tests/testthat/test-with_extlib.R
