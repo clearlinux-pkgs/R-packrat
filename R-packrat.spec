@@ -4,15 +4,12 @@
 #
 Name     : R-packrat
 Version  : 0.5.0
-Release  : 18
+Release  : 19
 URL      : https://cran.r-project.org/src/contrib/packrat_0.5.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/packrat_0.5.0.tar.gz
 Summary  : A Dependency Management System for Projects and their R Package
 Group    : Development/Tools
 License  : GPL-2.0
-Requires: R-assertthat
-Requires: R-cli
-Requires: R-withr
 BuildRequires : R-assertthat
 BuildRequires : R-cli
 BuildRequires : R-rlang
@@ -31,10 +28,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552837359
+export SOURCE_DATE_EPOCH=1552880457
 
 %install
-export SOURCE_DATE_EPOCH=1552837359
+export SOURCE_DATE_EPOCH=1552880457
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
