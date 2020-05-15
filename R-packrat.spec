@@ -4,40 +4,35 @@
 #
 Name     : R-packrat
 Version  : 0.5.0
-Release  : 27
+Release  : 28
 URL      : https://cran.r-project.org/src/contrib/packrat_0.5.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/packrat_0.5.0.tar.gz
 Summary  : A Dependency Management System for Projects and their R Package
 Group    : Development/Tools
 License  : GPL-2.0
-BuildRequires : R-assertthat
-BuildRequires : R-cli
-BuildRequires : R-rlang
-BuildRequires : R-withr
 BuildRequires : buildreq-R
-BuildRequires : util-linux
 
 %description
-[![Build Status](https://travis-ci.org/rstudio/packrat.svg?branch=master)](https://travis-ci.org/rstudio/packrat)
-[![Coverage Status](https://codecov.io/github/rstudio/packrat/coverage.svg?branch=master)](https://codecov.io/github/rstudio/packrat?branch=master)
+on in an isolated, portable, and reproducible way.
 
 %prep
 %setup -q -c -n packrat
+cd %{_builddir}/packrat
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571871094
+export SOURCE_DATE_EPOCH=1589576235
 
 %install
-export SOURCE_DATE_EPOCH=1571871094
+export SOURCE_DATE_EPOCH=1589576235
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
