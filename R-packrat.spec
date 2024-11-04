@@ -5,7 +5,7 @@
 #
 Name     : R-packrat
 Version  : 0.9.2
-Release  : 58
+Release  : 59
 URL      : https://cran.r-project.org/src/contrib/packrat_0.9.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/packrat_0.9.2.tar.gz
 Summary  : A Dependency Management System for Projects and their R Package
